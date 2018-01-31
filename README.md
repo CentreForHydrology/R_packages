@@ -1,2 +1,2 @@
 # R_packages
-How to create packages in R
+Contains a presentation showing how to create packages in R

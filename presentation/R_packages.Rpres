@@ -271,7 +271,7 @@ Building the manual .pdf
 - Must have LaTex installed
 - For some reason, this doesn't work for me
   - have to do it manually
-  - Type in this command in the **R** console:
+  - type in this command in the **R** console:
 ```{r}
 system("R CMD Rd2pdf mypackage")
 ```
