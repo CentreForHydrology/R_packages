@@ -7,8 +7,8 @@ autosize: true
 What is a package?
 ========================================================
 - A compressed file
-  - contains all of the files required to distribute R code
-- Should work for anyone, on any type of computer
+- Contains all of the files required to distribute R code
+
 
 Why create a package?
 ========================================================
@@ -16,7 +16,9 @@ Why create a package?
 - Makes your code reproducible
   - makes code reusable
   - improves code quality
+  - takes care of dependencies
   - self-documenting
+  - should work for anyone, on any computer
 
 Building a package
 ========================================================
@@ -34,10 +36,9 @@ Mandatory package components
 - 2 Files
   - DESCRIPTION
   - NAMESPACE
-- directories
 - 2 directories are mandatory
-  - \R, code files
-  - \man, documentation files
+  - /R   -- contains code .R files
+  - /man  -- contains documentation .Rd files
 - may have other directories  
   
 DESCRIPTION
@@ -67,7 +68,7 @@ URL: www.usask.ca/hydrology
 
 NAMESPACE
 ========================================================
-- Contains detailed information about each function
+- Contains detailed information about imports and exports of each function
 - Do NOT create or edit this file
   - **roxygen2** will automatically create and maintain it
 
@@ -116,10 +117,14 @@ Tags
 Formatting
 =========================================================
 - Documentation can include formatting codes
-- \pkg{} - package
-- \option{} - option
-- \emph{} - emphasis
-- \code{} - code
+```{r ,eval=FALSE}
+\pkg{} - package
+\option{} - option
+\emph{} - emphasis
+\code{} - code
+```
+
+
 
 Example
 =========================================================
@@ -161,10 +166,10 @@ NULL
 Other folders
 =========================================================
 - You may see these folders in packages:
-  - \data, data files used by the package
-  - \vignettes, documentation written in Markdown
-  - \inst, contains the file CITATION showing how to cite the package
-  - \src, source code written in C, C++ or Fortran
+  - /data, data files used by the package
+  - /vignettes, documentation written in Markdown
+  - /inst, contains the file CITATION showing how to cite the package
+  - /src, source code written in C, C++ or Fortran
 
 
 Workflow
@@ -190,11 +195,11 @@ Workflow
 New package
 ==========================================================
 - R studio will create all of the files and directories
-  - \R
-  - \man
+  - /R
+  - /man
   - DESCRIPTION
   - NAMESPACE
-- Also creates a sample file **hello.R** in \R
+- Also creates a sample file **hello.R** in /R
 - Adds folders and files for git
 
 Setting up roxygen
@@ -210,7 +215,7 @@ Setting up roxygen
 
 2. Adding R code
 ==========================================================
-- Put your R code files in \R
+- Put your R code files in /R
 - Must be functions
   - one function per file
 - Add the roxygen skeleton to your code for each file
@@ -289,9 +294,20 @@ Copying an existing repository
 
 
 Using git
-===========================================================
+============================================================
 - Every time you change your code, commit the changes to your git repository
 - If you make a mistake, you can go back to an older version
 
 ![](commit.png)
 
+
+Misc.
+============================================================
+- Make sure you specify a licence for your code  
+https://choosealicense.com/
+- Don't forget to update the version number in DESCRIPTION
+  - version < 1.0.0 -- not ready for outside use
+  - use major.minor.patch numbers  
+https://semver.org/
+- Remember to update the date in DESCRIPTION
+  
